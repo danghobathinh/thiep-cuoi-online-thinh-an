@@ -142,7 +142,7 @@ canvas#petals{position:fixed;inset:0;pointer-events:none;z-index:2}
 .hero-save{text-align:left}
 .hero-save .s{font-family:'Dancing Script',cursive;font-size:1.75rem;color:var(--gold-light);display:block}
 .hero-save .d{font-size:.56rem;letter-spacing:3px;color:var(--cream);opacity:.8;margin-top:-4px}
-.hero-names{font-family:'Dancing Script',cursive;font-size:3.2rem;color:var(--gold-light);margin:6px 0 4px;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero-names{font-family:'Dancing Script',cursive;font-size:clamp(2.3rem,10vw,3.4rem);white-space:nowrap;color:var(--gold-light);margin:6px 0 4px;text-shadow:0 2px 18px rgba(0,0,0,.25)}
 .hero-sub{font-size:.55rem;letter-spacing:5px;text-transform:uppercase;color:var(--cream);opacity:.75;margin-bottom:20px}
 .hero-photo{position:relative;margin:0 auto;max-width:420px}
 .hero-photo .seal{position:absolute;top:14px;right:14px;z-index:4}
@@ -178,7 +178,7 @@ canvas#petals{position:fixed;inset:0;pointer-events:none;z-index:2}
 .parent-side h4{font-family:'Playfair Display',serif;font-size:.72rem;letter-spacing:1px;color:var(--wine);font-weight:600;margin-bottom:5px}
 .parent-side p{font-family:'Cormorant Garamond',serif;font-size:.98rem;color:var(--ink);line-height:1.65}
 .parent-div{width:1px;background:linear-gradient(to bottom,transparent,var(--gold),transparent)}
-.invite-names{font-family:'Dancing Script',cursive;font-size:2.1rem;color:var(--wine);text-align:center;margin:6px 0 22px}
+.invite-names{font-family:'Dancing Script',cursive;font-size:2.1rem;line-height:1.35;color:var(--wine);text-align:center;margin:20px 0 22px}
 
 /* ===== COUNTDOWN ===== */
 .cd-grid{display:flex;justify-content:center;gap:9px}
@@ -646,7 +646,7 @@ body.opened .fab-bar{transform:translateX(-50%) translateY(0)}
 <div class="sec on-wine" style="padding-top:6px">
     <div class="sec-title" style="padding-top:14px"><span class="s">Địa Điểm Tổ Chức</span><span class="ln"><span></span><i></i><span></span></span></div>
     <div class="ticket" data-a>
-        <div class="venue-name">Sân Vận Động Khối Phố Hà Tây 2</div>
+        <div class="venue-name">Sân Vận Động Khối Phố Hà Tây</div>
         <div class="venue-addr">Phường Điện Bàn Bắc, Thành Phố Đà Nẵng</div>
         <div class="map-frame"><iframe src="https://maps.google.com/maps?q=15.934638,108.205440&z=16&hl=vi&output=embed" allowfullscreen loading="lazy"></iframe></div>
         <div class="map-wrap"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&destination=15.934638,108.205440" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Chỉ Đường</a></div>
