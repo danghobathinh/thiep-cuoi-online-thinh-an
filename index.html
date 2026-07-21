@@ -346,6 +346,16 @@ canvas#petals{position:fixed;inset:0;pointer-events:none;z-index:2}
 .lb-close:hover{transform:rotate(90deg);background:rgba(0,0,0,.6)}
 .lb-hint{position:fixed;bottom:24px;left:0;right:0;text-align:center;z-index:10003;pointer-events:none;
     font-family:'Quicksand',sans-serif;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);opacity:.75}
+/* --- gợi ý cuộn xuống sau khi mở thiệp --- */
+.scroll-cue{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:9000;
+    display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 16px 10px;border-radius:22px;
+    background:rgba(30,8,8,.5);backdrop-filter:blur(4px);border:1px solid rgba(230,201,135,.35);
+    font-family:'Quicksand',sans-serif;font-size:.56rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);
+    opacity:0;pointer-events:none;transition:opacity .6s ease}
+.scroll-cue svg{width:22px;height:22px;stroke:var(--gold-light);fill:none;stroke-width:2;animation:cueBounce 1.6s ease-in-out infinite}
+body.opened .scroll-cue{opacity:.95}
+body.opened .scroll-cue.hide{opacity:0}
+@keyframes cueBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 
 /* ==================== ENHANCEMENTS: LINH ĐỘNG + ĐẸP ==================== */
 /* make drifting layers visible above the opaque sections */
@@ -585,7 +595,7 @@ body.opened .fab-bar{transform:translateX(-50%) translateY(0)}
     <div class="parents stagger">
         <div class="parent-side"><h4>Nhà trai</h4><p>Bà Hồ Thị Dung</p></div>
         <div class="parent-div"></div>
-        <div class="parent-side"><h4>Nhà gái</h4><p>Ông Trương Công Siêm<br>Bà Nguyễn Thị Thu</p></div>
+        <div class="parent-side"><h4>Nhà gái</h4><p>Ông Trương Công Siêm<br>Bà Lê Thị Thu</p></div>
     </div>
     <div class="inv-avatars stagger">
         <div class="avatar"><img src="assets/images/groom.jpg" alt="Chú rể"></div>
@@ -757,6 +767,9 @@ body.opened .fab-bar{transform:translateX(-50%) translateY(0)}
     <button class="fab" onclick="addToCal()"><span class="em">📅</span>Thêm lịch</button>
     <button class="fab" onclick="shareCard()"><span class="em">🔗</span>Chia sẻ</button>
 </div>
+
+<!-- GỢI Ý CUỘN XUỐNG (hiện sau khi mở thiệp) -->
+<div class="scroll-cue" id="scrollCue">Cuộn xuống xem tiếp<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
 
 <div class="lightbox" id="lb" onclick="this.classList.remove('active')">
     <button class="lb-close" aria-label="Đóng">&times;</button>
@@ -1033,6 +1046,7 @@ body.opened .fab-bar{transform:translateX(-50%) translateY(0)}
     // ===== LIGHTBOX (for real images added later) =====
     document.querySelectorAll('.photo img').forEach(img=>img.addEventListener('click',()=>{document.getElementById('lbi').src=img.src;document.getElementById('lb').classList.add('active')}));
     document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lb').classList.remove('active');});
+    window.addEventListener('scroll',()=>{if(window.scrollY>40){const c=document.getElementById('scrollCue');if(c)c.classList.add('hide');}},{passive:true});
 })();
 </script>
 </body>
